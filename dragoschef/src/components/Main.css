@@ -1,0 +1,118 @@
+.MainContainer{
+    background-color: #f1f1f1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.FormContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    gap: 12px;
+    width: 70%;
+
+}
+.FormContainer > input{
+    height: 45px;
+    width: 100%;
+    min-width: 120px;
+    border-radius: 10px;
+    padding: 0px 10px;
+    border: 1px solid rgb(201, 201, 201);
+    background-color: rgb(255, 255, 255);
+}
+.FormContainer > button{
+    width: 150px;
+    min-width: 90px;
+    height: 45px;
+    color: aliceblue;
+    border-radius: 10px;
+    padding: 0px 10px;
+    background-color: rgb(0, 0, 0);
+}
+.MainFunction{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.ListContainer{
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    flex-direction: column;
+    width: 70%;
+    gap: 15px;
+    padding-left: 30px;
+}
+h2{
+    font-size: 27px;
+}
+.ListEntry{
+    font-weight: 350;
+    font-size: 18px;
+    color: rgb(57, 57, 57);
+    width: fit-content;
+}
+.ListEntry:hover{
+    text-decoration: line-through;
+    cursor: pointer;
+    color: rgb(126, 126, 126);
+}
+.GetRecipeContainer{
+    margin: 40px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(220, 219, 219);
+    padding: 10px 10%;
+    width: 80%;
+    height: 100px;
+    border-radius: 10px;
+    overflow:scroll
+}
+.GetRecipeButton{
+    color: aliceblue;
+    background-color: rgb(192, 101, 70);
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    min-width: 75px;
+}
+.GetRecipeButton:hover{
+    background-color: rgb(185, 88, 56);
+    cursor: pointer;
+}
+
+.GetTextContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.GetTextContainer > h3{
+    font-weight: 550;
+}
+.GetTextContainer > p {
+    font-weight: 350;
+    color: rgb(92, 91, 91);
+}
+.recipeStart{
+    width: 70%;
+    margin: 20px;
+}
+.suggested-recipe-container{
+    width: 65%;
+}
+.suggested-recipe-container > h3{
+    padding-bottom: 10px;
+}
+.suggested-recipe-container > h4{
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+.suggested-recipe-container > ul,ol{
+    padding-left: 30px;
+    padding-bottom: 30px;
+}
