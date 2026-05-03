@@ -1,91 +1,150 @@
-# 👨‍🍳 DragosChef - AI Recipe Generator
+# 👨‍🍳 DragosChef — AI Recipe Generator
+
+A modern web app that transforms your available ingredients into a complete AI-generated recipe — in seconds.
+
+> **Live Demo:** [dragos-chef.vercel.app](https://dragos-chef.vercel.app)
+> *(deploy on Vercel and update this link)*
+
+---
 
 ## 🌟 About the Project
 
-**DragosChef** is a modern web application built with **React** that transforms your list of available ingredients into a complete, suggested recipe. This project utilizes an advanced Large Language Model (`Meta-Llama-3-8B-Instruct`) to generate creative and personalized recipes in real-time based on what you have on hand.
+**DragosChef** is built with **React** and powered by a Large Language Model (`Meta-Llama-3-8B-Instruct` via Hugging Face) that generates creative, personalized recipes based on whatever ingredients you have on hand.
 
-The mission is simple: **Cook more, waste less!**
+The mission is simple: **Cook more, waste less.**
+
+---
 
 ## 💡 How It Works
 
-1.  **Input Ingredients:** The user adds the ingredients they have available in their kitchen.
-2.  **AI Call:** The list is sent to a specialized endpoint of the Hugging Face API.
-3.  **Recipe Generation:** The AI model (`Meta-Llama-3-8B-Instruct`) processes the input and generates a single, detailed recipe, strictly formatted in Markdown according to a rigorous `SYSTEM_PROMPT`.
-4.  **Display:** The application parses and displays the generated recipe using a Markdown renderer.
+1. **Input Ingredients** — Add the ingredients you have available in your kitchen
+2. **AI Call** — The list is sent to the Hugging Face Inference API
+3. **Recipe Generation** — The LLM processes the input and returns a detailed recipe, strictly formatted in Markdown via a custom `SYSTEM_PROMPT`
+4. **Display** — The app parses and renders the recipe using a Markdown renderer
 
-## ⚙️ Technology Stack
+---
 
-- **Frontend:** React (with a focus on Hooks: `useState`, state management).
-- **Tooling:** Vite.
-- **Styling:** Modular CSS (CSS files imported directly into their respective components).
-- **AI Integration:** Asynchronous logic (`async/await`) and error handling managed within `ai.js`.
+## ✨ Features
 
-## 🚀 Installation and Local Setup
+- 🥕 Add and remove ingredients dynamically
+- 🤖 Real-time AI recipe generation using a live LLM
+- 📄 Clean Markdown recipe output (name, ingredients, step-by-step instructions)
+- 🔐 Secure API key management via Vite environment variables
+- ⚡ Fast development and build with Vite
 
-To run this project locally, follow the steps below:
+---
 
-### 1. Clone the Repository
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | React 18 + Vite |
+| Styling | Modular CSS (per-component) |
+| AI Model | Meta-Llama-3-8B-Instruct (Hugging Face) |
+| API Communication | Fetch API with async/await |
+| Deployment | Vercel |
+
+---
+
+## 🚀 Getting Started Locally
+
+### 1. Clone the repository
 
 ```bash
-git clone [Your GitHub URL]
-cd dragoschef
+git clone https://github.com/MironDragos/Dragos-Chef.git
+cd Dragos-Chef
 ```
 
-### 2\. Install Dependencies
+### 2. Install dependencies
 
 ```bash
 npm install
-# or
-yarn install
 ```
 
-### 3\. Configure the API Keys (Secret Management)
+### 3. Configure environment variables
 
-The project uses Environment Variables (managed by Vite) to protect the API key, ensuring it is not exposed in the source code or on GitHub.
-
-1.  Obtain an API Key from your provider (Hugging Face).
-2.  Create a file named **`.env`** in the **root directory** of the project (next to `package.json`).
-3.  Add the necessary variables, ensuring you use the **`VITE_`** prefix:
-
-<!-- end list -->
+Create a `.env` file in the root directory (next to `package.json`):
 
 ```env
-VITE_HF_API_TOKEN="YOUR_API_KEY_HERE"
-VITE_API_URL="[https://api-inference.huggingface.co/models](https://api-inference.huggingface.co/models)"
+VITE_HF_API_TOKEN="your_huggingface_api_token_here"
+VITE_API_URL="https://api-inference.huggingface.co/models"
 ```
 
-**\*Note:** The `.env` file is automatically ignored by Git for security.\*
+> Get your free API token at [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
 
-### 4\. Start the Application
+> ⚠️ The `.env` file is listed in `.gitignore` and will never be pushed to GitHub.
+
+### 4. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-The application should now be running at `http://localhost:5173`.
+App runs at `http://localhost:5173`
+
+---
+
+## ☁️ Deploy on Vercel
+
+1. Push the project to GitHub
+2. Go to [vercel.com](https://vercel.com) → **New Project** → import this repo
+3. In **Environment Variables**, add:
+   - `VITE_HF_API_TOKEN` → your Hugging Face token
+   - `VITE_API_URL` → `https://api-inference.huggingface.co/models`
+4. Click **Deploy** — done ✅
+
+---
 
 ## 📝 AI Response Format
 
-The AI model is strictly instructed to adhere to the following Markdown format to guarantee correct and consistent recipe display:
+The model is instructed via a strict `SYSTEM_PROMPT` to always respond in this Markdown structure:
 
 ```markdown
-### [Name of the Recipe]
+### [Recipe Name]
 
 #### Ingredients
-
-[List of ingredients, including quantities]
+- [ingredient + quantity]
 
 #### Instructions
-
-[Clear, step-by-step instructions]
+1. [Step one]
+2. [Step two]
+...
 ```
+
+This guarantees consistent, parseable output every time.
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── components/       # UI components (IngredientList, RecipeDisplay, etc.)
+├── ai.js             # Hugging Face API call + prompt logic
+├── App.jsx           # Root component + state management
+└── index.css         # Global styles
+```
+
+---
+
+## 🔮 Future Improvements
+
+- Save favorite recipes to localStorage
+- Choose cuisine style (Italian, Asian, etc.)
+- Recipe history / session log
+- Multiple recipe suggestions per request
+- Mobile-optimized UI
+
+---
 
 ## 🤝 Contributions
 
-All contributions are welcome\! Please open an **Issue** or a **Pull Request** for improvements or fixes.
+Contributions are welcome! Open an **Issue** or submit a **Pull Request** for any improvements or bug fixes.
 
-```
+---
 
-```
+## 👤 Author
+
+**Dragos Miron**
+- GitHub: [@MironDragos](https://github.com/MironDragos)
+- LinkedIn: [linkedin.com/in/dragosmiron](https://linkedin.com/in/dragosmiron)
