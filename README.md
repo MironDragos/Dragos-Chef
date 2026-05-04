@@ -3,7 +3,6 @@
 A modern web app that transforms your available ingredients into a complete AI-generated recipe — in seconds.
 
 > **Live Demo:** [dragos-chef.vercel.app](https://dragos-chef.vercel.app)
-> *(deploy on Vercel and update this link)*
 
 ---
 
